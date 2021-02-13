@@ -84,12 +84,10 @@ white-list=false
 EOF
 
 # > ENABLE RCON
-mkdir -p /opt/minecraft/tools
 git clone https://github.com/Tiiffi/mcrcon.git /opt/minecraft/mcrcon
 cd /opt/minecraft/mcrcon
 gcc -std=gnu11 -pedantic -Wall -Wextra -O2 -s -o mcrcon mcrcon.c
 ./mcrcon -h
-chmod 755 -R /opt/minecraft/mcrcon
 
 ###########################
 # MINECRAFT ENABLE SERVICE
@@ -120,7 +118,7 @@ PrivateDevices=true
 NoNewPrivileges=true
 WorkingDirectory=/opt/minecraft/server
 ExecStart=/usr/bin/java -$memoryAllocx -$memoryAllocs -jar server.jar nogui
-ExecStop=/opt/minecraft/mcrcon -H 127.0.0.1 -P 25575 -p abc stop
+ExecStop=/opt/minecraft/mcrcon/./mcrcon -H 127.0.0.1 -P 25575 -p abc stop
 
 [Install]
 WantedBy=multi-user.target
@@ -131,7 +129,7 @@ systemctl daemon-reload
 systemctl enable minecraft
 
 # > RELOAD SERVICE IF DOWN
-cat > /opt/startifdown.sh << EOF
+cat > /opt/minecraft/startifdown.sh << EOF
 #!/bin/bash
 # CONTROLEER OF MINECRAFT DRAAIT, ZO NIET: START
 ps -ef | grep minecraft |grep -v grep > /dev/null
@@ -139,10 +137,9 @@ if [ \$? != 0 ]; then
        /etc/init.d/minecraft start > /dev/null
 fi
 EOF
-chmod 755 /opt/startifdown.sh
 
 # > ADD CRONJOB
-crontab -l | grep -q "/opt/startifdown.sh" && echo 'cronjob reeds toegevoegd' || crontab -l | { cat; echo "*/12 * * * * chown root:root /opt/startifdown.sh && chmod 700 /opt/startifdown.sh; /opt/startifdown.sh >/dev/null 2>&1"; } | crontab -
+crontab -l | grep -q "/opt/minecraft/startifdown.sh" && echo 'cronjob reeds toegevoegd' || crontab -l | { cat; echo "*/12 * * * * chown root:root /opt/minecraft/startifdown.sh && chmod 700 /opt/minecraft/startifdown.sh; /opt/minecraft/startifdown.sh >/dev/null 2>&1"; } | crontab -
 
 ###########################
 # SET BACKUP SCRIPT
@@ -160,7 +157,6 @@ tar -cv \$MAP | gzip > "/opt/minecraft/backups/\$DATE Minecraft backup.tar.gz"
 # DELETE OLDER BACKUPS
 find /opt/minecraft/backups/ -type f -mtime +7 -name '*.gz' -delete
 EOF
-chmod 755 /opt/minecraft/backup.sh
 
 # > BACKUP MINECRAFT TWICE A DAY
 crontab -l | grep -q "/opt/minecraft/backup.sh" && echo 'cronjob reeds toegevoegd' || crontab -l | { cat; echo "15 8,16,23 * * * chown root:root /opt/minecraft/backup.sh && chmod 700 /opt/minecraft/backup.sh; /usr/bin/screen -dmS MCbackup /opt/minecraft/backup.sh >/dev/null 2>&1"; } | crontab -
@@ -172,6 +168,9 @@ if [[ $OptiFiney == "y" ]]; then
 else
   echo "Installation finished. Minecraft will now be executed. The first time launching the server can take max. 15 minutes."
 fi
+
+# > SET PERMISSIONS
+chmod 755 -R /opt/minecraft
 
 # > RUN MINECRAFT to initiate world. Can take a while
 systemctl start minecraft
