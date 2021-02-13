@@ -3,6 +3,7 @@ Inspired by <a href="https://linuxize.com/post/how-to-install-minecraft-server-o
 
 ````
 sudo su
+rm -fr /tmp/LP09-Minecraft
 git clone https://github.com/NTaravati/LP09-Minecraft /tmp/LP09-Minecraft
 chmod a+x -R /tmp/LP09-Minecraft
 /tmp/LP09-Minecraft/./install.sh
