@@ -6,7 +6,6 @@ echo "We will install Minecraft server to play online"
 echo "Recommendations:"
 echo "- Make sure that port 19132 is whitelisted in your firewall"
 echo "- Make sure that you're running the same Minecraft version on your PC"
-read -p "Would you like to install Forge and OptiFine mod as well? [y/n]" OptiFiney
 echo "Script last updated: 13-02-2021, v1.16.5. Source: https://www.minecraft.net/en-us/download/server/"
 
 ###########################
@@ -163,11 +162,7 @@ crontab -l | grep -q "/opt/minecraft/backup.sh" && echo 'cronjob reeds toegevoeg
 
 ###########################
 # FINISH
-if [[ $OptiFiney == "y" ]]; then
-  source "$(dirname "${BASH_SOURCE[0]}")/mods/install.sh"
-else
-  echo "Installation finished. Minecraft will now be executed. The first time launching the server can take max. 15 minutes."
-fi
+echo "Installation finished. Minecraft will now be executed. The first time launching the server can take max. 15 minutes."
 
 # > SET PERMISSIONS
 chmod 755 -R /opt/minecraft
