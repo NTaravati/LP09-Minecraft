@@ -140,7 +140,7 @@ EOF
 chmod 755 /opt/startifdown.sh
 
 # > ADD CRONJOB
-crontab -l | grep -q "/opt/startifdown.sh" && echo 'cronjob reeds toegevoegd' || crontab -l | { cat; echo "*/1 * * * * chown root:root /opt/startifdown.sh && chmod 700 /opt/startifdown.sh; /opt/startifdown.sh >/dev/null 2>&1"; } | crontab -
+crontab -l | grep -q "/opt/startifdown.sh" && echo 'cronjob reeds toegevoegd' || crontab -l | { cat; echo "*/12 * * * * chown root:root /opt/startifdown.sh && chmod 700 /opt/startifdown.sh; /opt/startifdown.sh >/dev/null 2>&1"; } | crontab -
 
 ###########################
 # SET BACKUP SCRIPT
