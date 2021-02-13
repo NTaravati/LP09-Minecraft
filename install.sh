@@ -8,7 +8,6 @@ echo "- Make sure that port 19132 is whitelisted in your firewall"
 echo "- Make sure that you're running the same Minecraft version on your PC"
 read -p "Would you like to install Forge and OptiFine mod as well? [y/n]" OptiFiney
 echo "Script last updated: 13-02-2021, v1.16.5. Source: https://www.minecraft.net/en-us/download/server/"
-downloadURL="https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar" #v1.16.5, Java edition
 
 ###########################
 # INITIATE SETUP
@@ -30,6 +29,7 @@ cd /opt/minecraft/server/
 ###########################
 # DOWNLOAD MINECRAFT
 # > SOURCE: https://www.minecraft.net/en-us/download/server/
+downloadURL="https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar" #v1.16.5, Java edition
 wget $downloadURL /opt/minecraft/server/
 
 # > AGREE WITH TERMS
