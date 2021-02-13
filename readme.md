@@ -1,5 +1,5 @@
 ## How to install Minecraft on Ubuntu v20.04?
-With this installer, you'll be able to install Minecraft server on Ubuntu v20.04. With a simple script, the status of your server will be checked every 12 minutes. If down, the server will automatically start your Minecraft server. This script is inspired by <a href="https://linuxize.com/post/how-to-install-minecraft-server-on-ubuntu-18-04/">linuxize.com</a>. Follow the commands below to initiate the setup. 
+With this installer, you'll be able to install Minecraft server on Ubuntu v20.04 without programming. A seed from the most popular worlds will be chosen to setup your game. With a simple monitor, the status of your server will be checked every 12 minutes. When down, the monitor will automatically start your Minecraft server again. This script is inspired by the tutorial provided at <a href="https://linuxize.com/post/how-to-install-minecraft-server-on-ubuntu-18-04/">linuxize.com</a>. Follow the commands below to initiate the setup. 
 
 ````
 sudo su
@@ -40,3 +40,6 @@ systemctl stop minecraft
 systemctl restart minecraft
 systemctl status minecraft
 ```
+
+## Recommended server settings
+Please use a server with at least 2 GB ram. AWS Lightsail and DigitalOcean offers various plans to start your server for just $10/month with plenty of storage, bandwidth and CPU power to run your server with a maximum of 20 players. 
