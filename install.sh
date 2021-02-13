@@ -67,7 +67,7 @@ op-permission-level=4
 player-idle-timeout=60
 pvp=true
 query.port=25565
-rcon.password=
+rcon.password=abc
 rcon.port=25575
 resource-pack=
 resource-pack-hash=
@@ -120,7 +120,7 @@ PrivateDevices=true
 NoNewPrivileges=true
 WorkingDirectory=/opt/minecraft/server
 ExecStart=/usr/bin/java -$memoryAllocx -$memoryAllocs -jar server.jar nogui
-ExecStop=/opt/minecraft/mcrcon -H 127.0.0.1 -P 25575 stop
+ExecStop=/opt/minecraft/mcrcon -H 127.0.0.1 -P 25575 -p abc stop
 
 [Install]
 WantedBy=multi-user.target
