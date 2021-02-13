@@ -6,6 +6,7 @@ echo "We will install Minecraft server to play online"
 echo "Recommendations:"
 echo "- Make sure that port 19132 is whitelisted in your firewall"
 echo "- Make sure that you're running the same Minecraft version on your PC"
+read -p "Would you like to install Forge and OptiFine mod as well? [y/n]" OptiFiney
 echo "Script last updated: 13-02-2021, v1.16.5. Source: https://www.minecraft.net/en-us/download/server/"
 downloadURL="https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar" #v1.16.5, Java edition
 
@@ -166,6 +167,10 @@ crontab -l | grep -q "/opt/minecraft/backup.sh" && echo 'cronjob reeds toegevoeg
 ###########################
 # FINISH
 echo "Installatie voltooid. Minecraft wordt nu uitgevoerd. Het bouwen van een wereld kan even duren."
+
+if [[ $OptiFiney == "y" ]]; then
+  source "$(dirname "${BASH_SOURCE[0]}")/mods/install.sh"
+fi
 
 # > RUN MINECRAFT to initiate world. Can take a while
 systemctl start minecraft
