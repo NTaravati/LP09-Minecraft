@@ -166,10 +166,10 @@ crontab -l | grep -q "/opt/minecraft/backup.sh" && echo 'cronjob reeds toegevoeg
 
 ###########################
 # FINISH
-echo "Installatie voltooid. Minecraft wordt nu uitgevoerd. Het bouwen van een wereld kan even duren."
-
 if [[ $OptiFiney == "y" ]]; then
   source "$(dirname "${BASH_SOURCE[0]}")/mods/install.sh"
+else
+  echo "Installation finished. Minecraft will now be executed. The first time launching the server can take max. 15 minutes."
 fi
 
 # > RUN MINECRAFT to initiate world. Can take a while
