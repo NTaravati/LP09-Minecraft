@@ -14,7 +14,7 @@ downloadURL="https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9
 # > UPDATE SERVER
 while ! echo y | apt-get update; do sleep 10 && apt-get update; done
 while ! echo y | apt-get install -y software-properties-common; do sleep 10 && apt-get install -y software-properties-common;done
-while ! echo y | apt-get install -y sudo apt install openjdk-11-jre-headless; do sleep 10 && apt-get install -y sudo apt install openjdk-11-jre-headless;done
+while ! echo y | apt-get install -y openjdk-11-jre-headless; do sleep 10 && apt-get install -y sudo apt install openjdk-11-jre-headless;done
 while ! echo y | apt-get install -y gcc; do sleep 10 && apt-get install -y gcc;done
 
 # > ALLOW FIREWALL
