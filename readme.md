@@ -1,5 +1,5 @@
 ## Minecraft server installer
-Inspired by <a href=""https://linuxize.com/post/how-to-install-minecraft-server-on-ubuntu-18-04/">linuxize.com</a>. Installation is as follows:
+Inspired by <a href="https://linuxize.com/post/how-to-install-minecraft-server-on-ubuntu-18-04/">linuxize.com</a>. Installation is as follows:
 
 ````
 sudo su
