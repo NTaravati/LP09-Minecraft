@@ -36,6 +36,8 @@ touch /opt/minecraft/server/eula.txt
 echo 'eula=true' >> /opt/minecraft/server/eula.txt
 
 # > SET MINECRAFT PROPERTIES
+seeds=(8638613833825887773 3227028068011494221 1777181425785 -1654510255 2327370183894455166 3427891657823464 9816485297234 321708923 -4186746847636013829 -8427444967367737379 189354817 5672120378 9176963463659858407 1013382714437321718 -1389577003656398696 -7255571058704538969 -1613247987266390429) # source: https://www.rockpapershotgun.com/best-minecraft-seeds-for-1-16-5
+
 cat > /opt/minecraft/server/server.properties << EOF
 #Minecraft server properties
 allow-flight=false
@@ -51,7 +53,7 @@ generate-structures=true
 generator-settings=
 hardcore=false
 level-name=GreenHouse
-level-seed=1777181425785
+level-seed=${seeds[$RANDOM%${#types[@]}]}
 level-type=DEFAULT
 max-build-height=256
 max-build-players=20
