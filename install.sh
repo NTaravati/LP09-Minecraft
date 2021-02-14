@@ -92,9 +92,11 @@ gcc -std=gnu11 -pedantic -Wall -Wextra -O2 -s -o mcrcon mcrcon.c
 # MINECRAFT ENABLE SERVICE
 # > SET MEMORY LIMIT
 totalMem=$(free -m | awk '/Mem:/ { print $2 }')
+Xmsv="$((($totalMem -200)/3))"M
+Xmxv="$((($totalMem -200)/3*2))"M
 if [ $totalMem -lt 2048 ]; then
-    memoryAllocs=Xms512M
-    memoryAllocx=Xmx1G
+  memoryAllocs=Xms$Xmsv
+  memoryAllocx=Xmx$Xmxv
 else
     memoryAllocs=Xms1G
     memoryAllocx=Xmx2G
