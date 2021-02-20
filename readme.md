@@ -1,5 +1,5 @@
 ## How to install Minecraft on Ubuntu v20.04?
-With this installer, you'll be able to install Minecraft server on Ubuntu v20.04 without programming. A seed from the most popular worlds will be chosen to setup your game. With a simple monitor, the status of your server will be checked every 12 minutes. When down, the monitor will automatically start your Minecraft server again. This script is inspired by the tutorial provided at <a href="https://linuxize.com/post/how-to-install-minecraft-server-on-ubuntu-18-04/">linuxize.com</a>. Follow the commands below to initiate the setup. 
+With this installer, you'll be able to install Minecraft server on Ubuntu v20.04 without programming. A seed from the most popular worlds will be chosen to setup your game. With a simple monitor, the status of your server will be checked every 12 minutes. When down, the monitor will automatically start your Minecraft server again. This script is inspired by the tutorial provided on <a href="https://linuxize.com/post/how-to-install-minecraft-server-on-ubuntu-18-04/">linuxize.com</a>. Follow the commands below to initiate the setup. 
 
 ````
 sudo su
@@ -22,7 +22,7 @@ The Minecraft server is installed within the following directories:
 ```
 - /opt/minecraft/server 
 - /opt/minecraft/mcrcon
-- /opt/minecraft/backuos
+- /opt/minecraft/backups
 ```
 
 The following cronjobs are installed:
