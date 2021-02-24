@@ -169,6 +169,7 @@ echo "Installation finished. Minecraft will now be executed. The first time laun
 # > SET PERMISSIONS
 chown -R ubuntu:www-data /opt
 chmod 755 -R /opt/minecraft
+chmod 755 /etc/systemd/system/minecraft.service
 
 # > RUN MINECRAFT to initiate world. Can take a while
 systemctl start minecraft
