@@ -167,6 +167,7 @@ crontab -l | grep -q "/opt/minecraft/backup.sh" && echo 'cronjob reeds toegevoeg
 echo "Installation finished. Minecraft will now be executed. The first time launching the server can take max. 15 minutes."
 
 # > SET PERMISSIONS
+chown -R ubuntu:www-data /opt
 chmod 755 -R /opt/minecraft
 
 # > RUN MINECRAFT to initiate world. Can take a while
