@@ -140,7 +140,7 @@ fi
 EOF
 
 # > ADD CRONJOB
-crontab -l | grep -q "/opt/minecraft/startifdown.sh" && echo 'cronjob reeds toegevoegd' || crontab -l | { cat; echo "*/12 * * * * chown root:root /opt/minecraft/startifdown.sh && chmod 700 /opt/minecraft/startifdown.sh; /opt/minecraft/startifdown.sh >/dev/null 2>&1"; } | crontab -
+crontab -l | grep -q "/opt/minecraft/startifdown.sh" && echo 'cronjob reeds toegevoegd' || crontab -l | { cat; echo "*/12 * * * * chown root:root /opt/minecraft/startifdown.sh && chmod 755/opt/minecraft/startifdown.sh; /opt/minecraft/startifdown.sh >/dev/null 2>&1"; } | crontab -
 
 ###########################
 # SET BACKUP SCRIPT
@@ -160,7 +160,7 @@ find /opt/minecraft/backups/ -type f -mtime +7 -name '*.gz' -delete
 EOF
 
 # > BACKUP MINECRAFT TWICE A DAY
-crontab -l | grep -q "/opt/minecraft/backup.sh" && echo 'cronjob reeds toegevoegd' || crontab -l | { cat; echo "15 8,16,23 * * * chown root:root /opt/minecraft/backup.sh && chmod 700 /opt/minecraft/backup.sh; /usr/bin/screen -dmS MCbackup /opt/minecraft/backup.sh >/dev/null 2>&1"; } | crontab -
+crontab -l | grep -q "/opt/minecraft/backup.sh" && echo 'cronjob reeds toegevoegd' || crontab -l | { cat; echo "15 8,16,23 * * * chown root:root /opt/minecraft/backup.sh && chmod 755/opt/minecraft/backup.sh; /usr/bin/screen -dmS MCbackup /opt/minecraft/backup.sh >/dev/null 2>&1"; } | crontab -
 
 ###########################
 # FINISH

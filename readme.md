@@ -28,8 +28,8 @@ The Minecraft server is installed within the following directories:
 The following cronjobs are installed:
 
 ```
-15 8,16,23 * * * chown root:root /opt/minecraft/backup.sh && chmod 700 /opt/minecraft/backup.sh; /usr/bin/screen -dmS MCbackup /opt/minecraft/backup.sh >/dev/null 2>&1
-*/12 * * * * chown root:root /opt/minecraft/startifdown.sh && chmod 700 /opt/minecraft/startifdown.sh; /opt/minecraft/startifdown.sh >/dev/null 2>&1
+15 8,16,23 * * * chown root:root /opt/minecraft/backup.sh && chmod 755/opt/minecraft/backup.sh; /usr/bin/screen -dmS MCbackup /opt/minecraft/backup.sh >/dev/null 2>&1
+*/12 * * * * chown root:root /opt/minecraft/startifdown.sh && chmod 755/opt/minecraft/startifdown.sh; /opt/minecraft/startifdown.sh >/dev/null 2>&1
 ```
 
 To start, stop or restart your Minecraft server, please run the following commands.
